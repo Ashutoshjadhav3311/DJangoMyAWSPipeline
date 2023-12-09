@@ -11,10 +11,10 @@ phases:
       
       - pip --version
       - python -m pip install --upgrade pip
-      - pip install -r requirements.txt pylint
-      - echo "Pylint static code analysis"
-      - pylint notes || true
-      - pylint notesapp --disable=C,R --ignore=views.py *.py || true
+      - pip install -r requirements.txt
+      #- echo "Pylint static code analysis"
+      #- pylint notes || true
+      #- pylint notesapp --disable=C,R --ignore=views.py *.py || true
 
 
   build:
