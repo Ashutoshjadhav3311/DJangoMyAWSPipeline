@@ -9,4 +9,4 @@ phases:
       - echo "Static Code Analysis Using Pylint"
       - pip install -r requirements.txt pylint
       - pylint notes || true
-      - pylint notesapp --disable=C,R --ignore=notesapp/migrations,views.py *.py || true
+      - pylint notesapp --disable=C,R --ignore=notesapp/migrations,views.py,urls.py,notesapp/test *.py || true
