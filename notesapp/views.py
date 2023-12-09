@@ -14,7 +14,7 @@ from django.views.decorators.http import require_http_methods
 User = get_user_model()
 # Create your views here.
 
-
+@require_http_methods(["POST"])
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -27,6 +27,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 @login_required(login_url='login')  # Ensure the user is logged in to access this view
+@require_http_methods(["GET", "POST"])
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
