@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'notes.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-username, password, host = databases_secrets_env()
+username, password, host = databasessecreatsEnv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
