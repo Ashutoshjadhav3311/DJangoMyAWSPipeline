@@ -25,7 +25,8 @@ SECRET_KEY = '8_r-2@!&adej9qxpza^d)76_!%vge9w383f6xid!c1%a7mz_gv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['x22183868djangoo.eba-uzpbfmvh.eu-west-1.elasticbeanstalk.com' ]
+ALLOWED_HOSTS = ['x22183868djangoo.eba-uzpbfmvh.eu-west-1.elasticbeanstalk.com',
+                'djangospacenotes2-env.eba-pvcmvxb4.us-west-2.elasticbeanstalk.com']
 
 LOGIN_REDIRECT_URL = '/'
 # Application definition
