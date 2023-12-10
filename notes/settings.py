@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-from .getcredentials.py import getdjangokey
+from .getcredentials.py import getdjangokey,getdbkey
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -76,15 +76,15 @@ WSGI_APPLICATION = 'notes.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+dbkey=getdbkey()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shiva',  
-        'USER': 'postgres',  
-        'PASSWORD': 'Shiva!3311', 
-        'HOST': 'database-1.ccoqufb513ho.us-west-2.rds.amazonaws.com',  
-        'PORT': '5432',  
+        'NAME': dbkey['dbname'],  
+        'USER': dbkey['username'],  
+        'PASSWORD': dbkey['password'], 
+        'HOST': dbkey['host'],  
+        'PORT': dbkey['port'], 
     }
 }
 
