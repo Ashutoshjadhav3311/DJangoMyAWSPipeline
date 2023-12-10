@@ -86,7 +86,7 @@ djangokey=getdjangokey()
 SECRET_KEY = djangokey['key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['x22183868djangoo.eba-uzpbfmvh.eu-west-1.elasticbeanstalk.com',
                 'djangospacenotes2-env.eba-pvcmvxb4.us-west-2.elasticbeanstalk.com']
