@@ -19,7 +19,7 @@ phases:
       - pylint notes || true
       - pylint notesapp --disable=C,R --ignore=notesapp/migrations,views.py,urls.py,notesapp/test *.py || true
       - echo "Run Unit test"
-      #- python manage.py test notesapp
+      - python manage.py test notesapp
       - echo "SonarCloud"
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
       - unzip ./sonar-scanner-cli-5.0.1.3006-linux.zip
