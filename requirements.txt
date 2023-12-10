@@ -5,7 +5,7 @@ backcall
 blessed
 boto3
 botocore
-json
+
 psycopg==3.1.8
 psycopg-binary==3.1.8.
 cement
