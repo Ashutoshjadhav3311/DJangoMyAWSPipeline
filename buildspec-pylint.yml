@@ -1,11 +1,11 @@
 version: 0.2
 env:
   secrets-manager:
-    ORGANIZATION: sonarcloudDjangoSecreat:Dsonar.organization
+    ORGANIZATION: sonarcloudDjangoSecreat:organization
     PROJECT: sonarcloudDjangoSecreat:Dsonar.projectKey
-    HOST: sonarcloudDjangoSecreat:Dsonar.host
-    LOGIN: sonarcloudDjangoSecreat:Dsonar.login
-    DJANGOKEY: sonarcloudDjangoSecreat:DjangoKey
+    HOST: sonarcloudDjangoSecreat:host
+    LOGIN: sonarcloudDjangoSecreat:login
+    DJANGOKEY: sonarcloudDjangoSecreat:key
     
     
 phases:
