@@ -1,5 +1,13 @@
 version: 0.2
-
+env:
+  secrets-manager:
+    ORGANIZATION: sonarcloudDjangoSecreat : Dsonar.organization
+    PROJECT: sonarcloudDjangoSecreat : Dsonar.projectKey
+    HOST: sonarcloudDjangoSecreat: Dsonar.host
+    LOGIN: sonarcloudDjangoSecreat: Dsonar.login
+    DJANGOKEY: sonarcloudDjangoSecreat: DjangoKey
+    
+    
 phases:
   install:
     runtime-versions:
@@ -16,7 +24,7 @@ phases:
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
       - unzip ./sonar-scanner-cli-5.0.1.3006-linux.zip
       - export PATH=$PATH:$CODEBUILD_SRC_DIR/sonar-scanner-5.0.1.3006-linux/bin/
-      - sonar-scanner -Dsonar.organization=ashutosh0501 -Dsonar.projectKey=ashutosh0501_ashutosh -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1bcb869615cc5d798c7810ea0f5a2a9922336371
+      - sonar-scanner -Dsonar.organization=$ORGANIZATION -Dsonar.projectKey=$PROJECT -Dsonar.host.url=$HOST -Dsonar.login=$LOGIN
       - sleep 5
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ashutosh0501_ashutosh > report.json
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$PROJECT > report.json
       - cat report.json
