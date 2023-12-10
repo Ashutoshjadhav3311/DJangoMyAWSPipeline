@@ -8,7 +8,6 @@ phases:
     commands:
       - echo "Prebuild ops"
       #- sudo apt-get update
-      
       - pip --version
       - python -m pip install --upgrade pip
       - pip install -r requirements.txt
