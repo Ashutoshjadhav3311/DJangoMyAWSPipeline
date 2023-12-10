@@ -13,7 +13,7 @@ phases:
       - echo "Run Unit test"
       - python manage.py test notesapp
       - echo "SonarCloud"
-      - - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
       - unzip ./sonar-scanner-cli-5.0.1.3006-linux.zip
       - export PATH=$PATH:$CODEBUILD_SRC_DIR/sonar-scanner-5.0.1.3006-linux/bin/
       - sonar-scanner -Dsonar.organization=Ashutosh Jadhav -Dsonar.projectKey=ashutoshjadhav3311 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=317e0962b3b281bf203e9ebb6ae4bdff0890a694
