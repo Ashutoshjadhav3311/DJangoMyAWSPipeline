@@ -12,3 +12,11 @@ phases:
       - pylint notesapp --disable=C,R --ignore=notesapp/migrations,views.py,urls.py,notesapp/test *.py || true
       - echo "Run Unit test"
       - python manage.py test notesapp
+      - echo "SonarCloud"
+      - - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+      - unzip ./sonar-scanner-cli-5.0.1.3006-linux.zip
+      - export PATH=$PATH:$CODEBUILD_SRC_DIR/sonar-scanner-5.0.1.3006-linux/bin/
+      - sonar-scanner -Dsonar.organization=Ashutosh Jadhav -Dsonar.projectKey=ashutoshjadhav3311 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=317e0962b3b281bf203e9ebb6ae4bdff0890a694
+      - sleep 5
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ashutoshjadhav3311 > report.json
+      - cat report.json
