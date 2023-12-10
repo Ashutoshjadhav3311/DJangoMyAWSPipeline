@@ -10,6 +10,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.views.decorators.http import require_http_methods
+from django.conf import settings
+
 
 User = get_user_model()
 # Create your views here.
@@ -50,8 +52,12 @@ def index(request):
     return render(request, "index.html", {"notes": notes})
 @require_http_methods(["GET"])
 def about(request):
+    context = {
+        'google_api_key': settings.GOOGLE_MAPS_API_KEY,
+        # ... other context variables
+    }
     #notes = Notes.objects.all()
-    return render(request, "about.html")
+    return render(request, "about.html",context)
 @require_http_methods(["POST"])    
 def profile(request):
     #notes = Notes.objects.all()
