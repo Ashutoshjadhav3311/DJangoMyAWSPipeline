@@ -18,7 +18,7 @@
     {% for note in notes %}
     
     <a href=" {% url 'note' note.id %} ">
-    <li class="list-group-item">
+    <div class="list-group-item">
 
         <div class="noteContainer">
             <div id="headingAndIconsContainer">
@@ -65,7 +65,7 @@
 
             </p>
         </div>
-    </li>
+    </div>
     </a>
     {% endfor %}
 
