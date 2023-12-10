@@ -63,7 +63,7 @@ def profile(request):
     #notes = Notes.objects.all()
     return render(request, "profile.html")
 
-@require_http_methods(["POST"])
+@require_http_methods(["GET","POST"])
 def new_note(request):
     form = NotesForm()
     if request.method == 'POST':
