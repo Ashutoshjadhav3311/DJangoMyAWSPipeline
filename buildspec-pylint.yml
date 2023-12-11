@@ -16,7 +16,7 @@ phases:
     commands:
       - echo "Static Code Analysis Using Pylint"
       - pip install -r requirements.txt pylint
-      - pylint notes || true
+      - pylint notes --ignore=settings.py || true
       - pylint notesapp --disable=C,R --ignore=notesapp/migrations,views.py,urls.py,notesapp/test *.py || true
       - echo "Run Unit test"
       - python manage.py test notesapp
