@@ -21,10 +21,10 @@ phases:
       - echo "Run Unit test"
       - python manage.py test notesapp
       - echo "SonarCloud"
-      #- wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-      #- unzip ./sonar-scanner-cli-5.0.1.3006-linux.zip
-      #- export PATH=$PATH:$CODEBUILD_SRC_DIR/sonar-scanner-5.0.1.3006-linux/bin/
-      #- sonar-scanner -Dsonar.organization=$ORGANIZATION -Dsonar.projectKey=$PROJECT -Dsonar.host.url=$HOST -Dsonar.login=$LOGIN
-      #- sleep 5
-      #- curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$PROJECT > report.json
-      #- cat report.json
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+      - unzip ./sonar-scanner-cli-5.0.1.3006-linux.zip
+      - export PATH=$PATH:$CODEBUILD_SRC_DIR/sonar-scanner-5.0.1.3006-linux/bin/
+      - sonar-scanner -Dsonar.organization=$ORGANIZATION -Dsonar.projectKey=$PROJECT -Dsonar.host.url=$HOST -Dsonar.login=$LOGIN
+      - sleep 5
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$PROJECT > report.json
+      - cat report.json
