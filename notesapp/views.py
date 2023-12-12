@@ -29,7 +29,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 @login_required(login_url='login')  # Ensure the user is logged in to access this view
-@require_http_methods(["POST"])
+@require_http_methods(["POST","GET"])
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
@@ -46,7 +46,7 @@ def change_password(request):
     return render(request, 'registration/password.html', {'form': form})
 
 @login_required(login_url='login')  # login is required to render this view
-@require_http_methods(["GET"])
+@require_http_methods(["POST","GET"])
 def index(request):
     notes = Notes.objects.filter(user=request.user)         # Filter notes by the logged in user
     return render(request, "index.html", {"notes": notes})
@@ -58,7 +58,7 @@ def about(request):
     }
     #notes = Notes.objects.all()
     return render(request, "about.html",context)
-@require_http_methods(["POST"])    
+@require_http_methods(["POST","GET"]) 
 def profile(request):
     #notes = Notes.objects.all()
     return render(request, "profile.html")
@@ -84,7 +84,7 @@ def new_note(request):
     return render(request, "update.html", {"form": form})
 
 @login_required(login_url='login')  # Cannot render without login   
-@require_http_methods(["POST"])
+@require_http_methods(["POST","GET"])
 def note_detail(request, pk):
     note = Notes.objects.get(id=pk)  # Get the note based on the provided `pk`
     form = NotesForm(instance=note)
@@ -111,7 +111,7 @@ def note_detail(request, pk):
 
 
 # def delete_note(request, pk):
-@require_http_methods(["POST"])
+@require_http_methods(["POST","GET"])
 def delete_note(request, pk):
     note = Notes.objects.get(id=pk)
     form = NotesForm(instance=note)
