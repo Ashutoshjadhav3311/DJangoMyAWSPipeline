@@ -16,7 +16,7 @@ from django.conf import settings
 User = get_user_model()
 # Create your views here.
 
-@require_http_methods(["POST"])
+@require_http_methods(["POST","GET"])
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -24,7 +24,7 @@ def signup(request):
             user = form.save()
             login(request, user)
             return redirect('index')
-    else:
+    elif request.method == 'GET':
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
